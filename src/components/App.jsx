@@ -1,4 +1,6 @@
+import exampleVideoData from '../data/exampleVideoData.js';
 import VideoList from './VideoList.js';
+import VideoPlayer from './VideoPlayer.js';
 
 var App = () => (
   <div>
@@ -8,23 +10,19 @@ var App = () => (
       </div>
     </nav>
     <div className="row">
+    
       <div className="col-md-7">
-        <div><h5><em>videoPlayer</em> view goes here</h5></div>
+        <VideoPlayer video={exampleVideoData[0]}/>
       </div>
+      
       <div className="col-md-5">
-        <VideoList />
+        <VideoList videos={exampleVideoData}/>
       </div>
+      
     </div>
   </div>
 );
-console.log('test');
+
 // In the ES6 spec, files are "modules" and do not share a top-level scope
 // `var` declarations will only exist globally where explicitly defined
 export default App;
-
-/*
-babel . --out-dir compiled --presets=react --ignore=node_modules,compiled --source-maps inline
-npx babel script.js --watch --out-file script-compiled.js
-
-npx babel . --out-dir compiled
-*/
